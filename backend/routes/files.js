@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const { upload, deleteFileFromS3, getSignedUrl } = require('../config/aws');
 const { auth } = require('../middleware/auth');
+const { uploadLimiter } = require('../middleware/rateLimiter');
 const File = require('../models/File');
 const User = require('../models/User');
 
 // Upload file
-router.post('/upload', auth, upload.single('file'), async (req, res) => {
+router.post('/upload', auth, uploadLimiter, upload.single('file'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
