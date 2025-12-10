@@ -1,0 +1,136 @@
+.file-list {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.file-list-header,
+.file-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 150px;
+  gap: 20px;
+  padding: 16px 24px;
+  align-items: center;
+}
+
+.file-list-header {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.file-item {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.file-item:hover {
+  background: #f8f9fa;
+}
+
+.file-item:last-child {
+  border-bottom: none;
+}
+
+.file-col-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-icon {
+  font-size: 24px;
+}
+
+.file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.encrypted-badge {
+  font-size: 16px;
+}
+
+.file-col-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.file-list-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  background: white;
+  border-radius: 16px;
+}
+
+/* Preview Modal */
+.preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.preview-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preview-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.preview-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.preview-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: block;
+}
+
+.preview-pdf {
+  width: 90vw;
+  height: 90vh;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .file-list-header,
+  .file-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .file-col-size,
+  .file-col-date {
+    font-size: 14px;
+    color: #666;
+  }
+}
