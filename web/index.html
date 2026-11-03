@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal Cloud Storage security-first file workspace.">
+    <title>Personal Cloud Storage</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="mark">▣</span><span>Personal <b>Cloud</b></span></div>
+        <button class="upload button-primary" id="upload">＋ Upload file</button>
+        <nav><button class="nav active" data-view="files">▤ My files <b id="file-count">0</b></button><button class="nav" data-view="recent">◷ Recent</button><button class="nav" data-view="audit">⌁ Audit log</button></nav>
+        <div class="storage"><div class="storage-head"><span>Storage used</span><strong id="usage">0 MB</strong></div><div class="meter"><i id="meter"></i></div><small>128 MB secure local quota</small></div>
+        <div class="sidebar-foot"><span class="dot"></span> Owner-scoped workspace</div>
+      </aside>
+      <main>
+        <header class="topbar"><div><p class="eyebrow">Private by default</p><h1 id="title">My files</h1></div><label class="search">⌕ <input id="search" type="search" placeholder="Search files..."></label></header>
+        <section class="content" id="files-view"><div class="toolbar"><div><h2 id="view-heading">All files</h2><p class="muted">Your files stay organized, verifiable, and under your control.</p></div><select id="type-filter"><option value="">All file types</option><option value="image">Images</option><option value="document">Documents</option><option value="archive">Archives</option></select></div><div class="file-grid" id="file-grid"></div></section>
+        <section class="content hidden" id="recent-view"><div class="toolbar"><div><h2>Recent activity</h2><p class="muted">The files you touched most recently.</p></div></div><div class="file-grid" id="recent-grid"></div></section>
+        <section class="content hidden" id="audit-view"><div class="toolbar"><div><h2>Audit log</h2><p class="muted">Append-only records of file operations.</p></div></div><div class="audit-list" id="audit-list"></div></section>
+      </main>
+    </div>
+    <input id="file-input" type="file" hidden>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
