@@ -9,8 +9,9 @@ downloading personal files.
 
 The repository includes an owner-scoped filesystem storage boundary with
 opaque object IDs, sanitized display names, metadata, SHA-256 integrity
-metadata, and upload-size limits. Authentication, encryption, previews, and
-web/API layers remain separate roadmap items.
+metadata and verification, upload-size limits, per-owner usage accounting,
+listing, and append-only upload/delete audit events. Authentication,
+encryption, previews, and web/API layers remain separate roadmap items.
 
 ## First-release scope
 
@@ -62,4 +63,19 @@ original name only as display metadata.
 python -m venv .venv
 .venv/bin/pip install pytest
 PYTHONPATH=src .venv/bin/pytest
+```
+
+The storage API supports `put`, `metadata`, `list`, `read`, `delete`,
+`used_bytes`, `verify_integrity`, and `audit_events`. All object access is
+owner-scoped and object paths are derived only from opaque IDs.
+
+## Browser showcase
+
+The `web/` directory contains a dependency-free browser demo for file
+browsing, search, type filtering, quota visibility, integrity indicators,
+upload simulation, and audit history. It uses local browser storage and does
+not upload files anywhere.
+
+```sh
+python -m http.server 8000 --directory web
 ```
